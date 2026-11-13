@@ -1,0 +1,40 @@
+plugins {
+    id 'java'
+    // Version taken from teavm.org/docs/tooling/gradle.html (shows 0.16.0). Re-check before upgrading.
+    id 'org.teavm' version '0.16.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.release = 21
+}
+
+dependencies {
+    implementation project(':core')
+    implementation teavm.libs.jsoApis   // typed wrappers for DOM and common browser APIs
+}
+
+teavm {
+    all {
+        mainClass = 'app.reppin.web.Main'
+    }
+    js {
+        targetFileName = 'reppin.js'   // written to build/generated/teavm/js/reppin.js
+    }
+    // To trial the Wasm GC backend later (M0 spike), add a wasmGC { } block here.
+}
+
+// Assemble a static, servable PWA: hand-written shell + generated JavaScript.
+tasks.register('assemblePwa', Copy) {
+    group = 'build'
+    description = 'Builds the TeaVM JavaScript and copies it with the web shell into build/pwa'
+    dependsOn 'generateJavaScript'
+    from('src/main/webapp')
+    from(layout.buildDirectory.dir('generated/teavm')) {
+        include 'js/**'
+    }
+    into layout.buildDirectory.dir('pwa')
+}

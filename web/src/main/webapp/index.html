@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>reppin</title>
+  <meta name="description" content="Offline-first workout manager">
+  <meta name="theme-color" content="#0E1116">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <!-- Strict CSP per SPEC 13. If the TeaVM dev server indicator or source maps need relaxing in dev,
+       do it in a dev-only copy of this file, never here. -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/app.css">
+  <script src="js/reppin.js"></script>
+  <script src="js/start.js"></script>
+</head>
+<body>
+  <main id="app"></main>
+  <noscript>reppin needs JavaScript to run.</noscript>
+</body>
+</html>

@@ -1,0 +1,81 @@
+/* reppin design tokens (SPEC section 12). Dark-first; light is a full alternate set.
+ * Light values are a proposal: run axe/contrast checks before shipping (M8). */
+:root {
+  /* colour: dark */
+  --bg: #0E1116;
+  --surface: #171B22;
+  --surface-2: #212733;
+  --text: #F2F5F7;
+  --muted: #9AA4B2;
+  --accent: #C6F432;
+  --on-accent: #0E1116;
+  --rest: #4CC9F0;
+  --warn: #FFB020;
+  --danger: #FF5C5C;
+  --success: #3DDC97;
+  --focus: var(--accent);
+
+  /* type */
+  --font-ui: Arial, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Barlow Condensed', 'Arial Narrow', system-ui, sans-serif;
+  --fs-caption: 12px;
+  --fs-small: 14px;
+  --fs-body: 16px;
+  --fs-title-sm: 20px;
+  --fs-title: 28px;
+  --fs-display: 40px;
+  --fs-timer: 72px;
+  --lh-body: 1.4;
+  --lh-display: 1.1;
+
+  /* space (8 px grid), radii, targets */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+  --radius-m: 12px;
+  --radius-l: 20px;
+  --tap-min: 48px;
+  --focus-ring: 3px;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme='dark']) {
+    --bg: #F7F8FA;
+    --surface: #FFFFFF;
+    --surface-2: #EEF1F5;
+    --text: #12161C;
+    --muted: #5B6572;
+    --accent: #C6F432;      /* fills only; text on it stays --on-accent */
+    --on-accent: #0E1116;
+    --rest: #0A7EA4;
+    --warn: #9A5B00;
+    --danger: #C62828;
+    --success: #0F7B4F;
+    --focus: #3D5200;
+  }
+}
+
+:root[data-theme='light'] {
+  --bg: #F7F8FA;
+  --surface: #FFFFFF;
+  --surface-2: #EEF1F5;
+  --text: #12161C;
+  --muted: #5B6572;
+  --accent: #C6F432;
+  --on-accent: #0E1116;
+  --rest: #0A7EA4;
+  --warn: #9A5B00;
+  --danger: #C62828;
+  --success: #0F7B4F;
+  --focus: #3D5200;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,5 @@
+// Root build: shared coordinates only. Each module owns its own plugins and dependencies.
+allprojects {
+    group = 'app.reppin'
+    version = '0.1.0-SNAPSHOT'
+}

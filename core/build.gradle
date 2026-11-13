@@ -1,0 +1,29 @@
+plugins {
+    id 'java-library'
+}
+
+repositories {
+    mavenCentral()
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.release = 21
+    options.compilerArgs += ['-parameters', '-Xlint:all']
+}
+
+dependencies {
+    // Test-only. `core` itself has ZERO runtime dependencies so it stays TeaVM-compatible.
+    // Versions come from the jqwik 1.10.1 user guide (JUnit 5.14.4); re-check on Maven Central.
+    testImplementation platform('org.junit:junit-bom:5.14.4')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation 'net.jqwik:jqwik:1.10.1'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+test {
+    useJUnitPlatform()   // runs both the Jupiter and jqwik engines
+    testLogging {
+        events 'passed', 'skipped', 'failed'
+        exceptionFormat = 'full'
+    }
+}

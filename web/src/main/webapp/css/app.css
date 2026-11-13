@@ -1,0 +1,83 @@
+/* Self-hosted fonts (OFL). Download woff2 files into ../fonts/ (see docs/NEXT_STEPS.md, step 4).
+ * Until then the system fallbacks in tokens.css are used and these requests 404 harmlessly. */
+/* @font-face {
+  font-family: Inter;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url('../fonts/Inter-Variable.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Barlow Condensed';
+  font-weight: 600;
+  font-display: swap;
+  src: url('../fonts/BarlowCondensed-SemiBold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Barlow Condensed';
+  font-weight: 700;
+  font-display: swap;
+  src: url('../fonts/BarlowCondensed-Bold.woff2') format('woff2');
+} */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark light;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-ui);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  min-height: 100vh;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom)
+    env(safe-area-inset-left);
+}
+
+#app {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: var(--space-3);
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-display);
+  line-height: var(--lh-display);
+  margin: 0 0 var(--space-3);
+  letter-spacing: 0.01em;
+}
+
+.timer {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-timer);
+  line-height: var(--lh-display);
+  font-variant-numeric: tabular-nums;
+  color: var(--accent);
+  margin: var(--space-3) 0;
+}
+
+button {
+  min-height: var(--tap-min);
+  padding: 0 var(--space-4);
+  border: 0;
+  border-radius: var(--radius-m);
+  background: var(--accent);
+  color: var(--on-accent);
+  font: 600 var(--fs-body) var(--font-ui);
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: var(--focus-ring) solid var(--focus);
+  outline-offset: 2px;
+}
