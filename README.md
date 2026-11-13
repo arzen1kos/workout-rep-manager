@@ -12,7 +12,20 @@ Offline-first workout manager, written in Java and compiled to the browser with 
 
 </div>
 
-> **Status: boilerplate.** Walking skeleton only.
+> ### Branch Note: `feat/core-domain-model`
+> Slice 1 of the build: pure-Java domain and Library logic in `core`.
+> No changes to `web`.
+>
+> Verify: `./gradlew :core:test`
+>
+> Known gaps:
+>
+> - Nothing is persisted yet (IndexedDB adapter is the next slice).
+> - Tags cannot be deleted; link/unlink return the ids callers must remap.
+> - Names are not Unicode-normalised yet (needs the TeaVM spike).
+> - Not yet compiled for TeaVM; check once the web build is green.
+>
+> Next: IndexedDB storage for exercise cards, then the Library tab UI.
 
 ## What is in the box
 
