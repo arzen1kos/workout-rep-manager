@@ -61,7 +61,7 @@ Re-check all versions on Maven Central / the plugin portal before relying on the
 
 ## Layout
 
-```
+```text
 core/   pure Java, zero runtime dependencies (keeps it TeaVM-safe)
 web/    TeaVM entry point + static PWA shell (src/main/webapp)
 docs/   spec, build prompt, next steps, decisions
